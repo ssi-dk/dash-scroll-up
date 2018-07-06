@@ -1,0 +1,41 @@
+{
+  "name": "dash-scroll-up",
+  "version": "0.0.2",
+  "description": "Dash component to add custom button to scroll to the top of the page.",
+  "main": "lib/index.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ssi-dk/dash-scroll-up.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ssi-dk/dash-scroll-up/issues"
+  },
+  "homepage": "https://github.com/ssi-dk/dash-scroll-up",
+  "scripts": {
+    "copy-lib": "copyfiles -u 1 lib/* dash_scroll_up",
+    "demo": "builder run demo",
+    "install-local": "npm run copy-lib && python setup.py install",
+    "prepublish": "npm test && builder run build-dist && npm run copy-lib",
+    "publish-all": "npm publish && python setup.py sdist upload",
+    "publish-pypi": "npm run prepublish && python setup.py sdist upload",
+    "start": "builder run build-dev",
+    "test": "builder run check",
+    "test-watch": "builder run test-frontend-watch",
+    "test-debug": "builder run test-frontend-debug",
+    "uninstall-local": "pip uninstall dash-scroll-up -y"
+  },
+  "dependencies": {
+    "builder": "3.2.2",
+    "copyfiles": "^1.2.0",
+    "dash-components-archetype": "^0.2.11",
+    "prop-types": "^15.5.9",
+    "react": "^15.5.4",
+    "react-dom": "^15.5.4"
+  },
+  "devDependencies": {
+    "dash-components-archetype-dev": "^0.2.11",
+    "enzyme": "^2.8.2",
+    "react-test-renderer": "^15.5.4"
+  }
+}
